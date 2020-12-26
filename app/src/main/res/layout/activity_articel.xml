@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        app:cardBackgroundColor="#eaeaea">
+
+        <ImageView
+            android:id="@+id/uploadactivitystart"
+            android:layout_width="40dp"
+            android:layout_height="46dp"
+            android:layout_weight="0"
+            android:background="#00701A1A"
+            android:src="@drawable/gallerychoose" />
+
+        <TextView
+            android:id="@+id/articelfiles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="0dp"
+            android:layout_weight="0"
+            android:text="@string/files"
+            android:textColor="#0091EA"></TextView>
+
+    </androidx.cardview.widget.CardView>
+
+
+    <ListView
+        android:id="@+id/OrderList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#03A9F4"
+        tools:listitem="@layout/cellorder_list"
+        android:divider="@null"
+        android:dividerHeight="0dp"
+
+        />
+
+
+    <ListView
+        android:id="@+id/pdflist"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:cacheColorHint="#03A9F4"
+        tools:listitem="@layout/item_list" />
+
+    <com.mindorks.placeholderview.PlaceHolderView
+        android:id="@+id/galleryView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="horizontal" />
+</LinearLayout>

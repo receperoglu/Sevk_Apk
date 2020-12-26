@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        >
+
+        <TextView
+            android:id="@+id/WayBillId"
+            android:layout_width="90sp"
+            android:background="#0091EA"
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="İrsaliye No"
+            android:textColor="#FFFFFF"
+            android:layout_height="50dp"
+
+            android:width="90sp" />
+        <TextView
+            android:id="@+id/CreatedDate"
+            android:layout_width="90sp"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:padding="5dp"
+            android:text="İrsaliye No"
+            android:textColor="#FFFFFF"
+            android:layout_height="50dp"
+            android:layout_marginTop="20dp"
+
+            android:width="90sp" />
+
+        <TextView
+            android:id="@+id/Weight"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="right"
+
+
+            android:paddingLeft="10sp"
+
+            android:fontFamily="sans-serif-medium"
+
+
+            android:text="Genişlik"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/Piece"
+            android:layout_width="match_parent"
+            android:layout_height="25dp"
+            android:gravity="right"
+            android:layout_marginTop="20dp"
+
+            android:paddingLeft="10sp" />
+
+        <TextView
+            android:id="@+id/Color"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="sans-serif-medium"
+            android:gravity="left"
+            android:text="Renk"
+            android:textColor="#000000"
+            android:textSize="14sp"
+            android:visibility="gone" />
+
+
+        <com.mindorks.placeholderview.PlaceHolderView
+            android:id="@+id/galleryView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical" />
+    </androidx.cardview.widget.CardView>
+</LinearLayout>
+

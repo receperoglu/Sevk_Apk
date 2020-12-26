@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:icon="@drawable/gallerychoose"
+        android:onClick="Photo"
+        android:title="Foto Ekle"
+        android:visible="false"
+        app:showAsAction="always"></item>
+
+
+    <item
+        android:icon="@drawable/newgallerchoose"
+        android:onClick="Gallery"
+        android:title="Galeri"
+        android:visible="false"
+        app:showAsAction="always"></item>
+    <item
+        android:icon="@drawable/share"
+        android:onClick="Share"
+        android:title="Paylaş"
+        android:visible="false"
+        app:showAsAction="always"></item>
+
+</menu>
