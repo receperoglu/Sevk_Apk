@@ -1,0 +1,18 @@
+<component name="libraryTable">
+  <library name="Gradle: com.jsibbold:zoomage:1.2.0@aar">
+    <ANNOTATIONS>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7811d13b1662ba3860270352bae09b3c/jetified-zoomage-1.2.0/annotations.zip!/" />
+    </ANNOTATIONS>
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7811d13b1662ba3860270352bae09b3c/jetified-zoomage-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7811d13b1662ba3860270352bae09b3c/jetified-zoomage-1.2.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/7811d13b1662ba3860270352bae09b3c/jetified-zoomage-1.2.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jsibbold/zoomage/1.2.0/f47f14cfa9d9ea6aab15440734bab81a98a465bb/zoomage-1.2.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jsibbold/zoomage/1.2.0/24b7b2bea53c069e6ceee6227f8d2c3883968278/zoomage-1.2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
