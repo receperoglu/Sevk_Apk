@@ -16,10 +16,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom"
-            android:background="@color/colorPrimary"
+            android:background="#0078d4"
+            android:fadingEdge="horizontal|vertical"
             app:itemIconTint="#ffffff"
             app:itemTextColor="#ffffff"
-             app:menu="@menu/asd" />
+            app:menu="@menu/asd" />
 
         <ListView
             android:id="@+id/lv"

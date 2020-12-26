@@ -37,7 +37,8 @@ public class CorpList extends AppCompatActivity {
     ImageButton isimarama;
     private String TAG = CorpList.class.getSimpleName();
     private ListView lv;
-
+    private String Vergi;
+    private String Adress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,6 +58,9 @@ public class CorpList extends AppCompatActivity {
                 Intent intent = new Intent(view.getContext(), CorpArticelActivity.class);
                 intent.putExtra("CorpId", CorpId);
                 intent.putExtra("CorpName", CorpName);
+                intent.putExtra("Vergi", ((TextView) view.findViewById(R.id.VergiDairesi)).getText().toString()+" - "+((TextView) view.findViewById(R.id.VergiNo)).getText().toString());
+                intent.putExtra("Adres", ((TextView) view.findViewById(R.id.Adress)).getText().toString());
+
                 startActivity(intent);
                 overridePendingTransition(R.anim.sl, R.anim.sr);
             }
@@ -116,6 +120,12 @@ public class CorpList extends AppCompatActivity {
                         HashMap<String, String> CorpList = new HashMap<>();
                         CorpList.put("CorpId", CorpId);
                         CorpList.put("CorpName", CorpName);
+                        CorpList.put("VergiNo", t.getString("VergiNo"));
+                        CorpList.put("Adress", t.getString("Adress"));
+                        CorpList.put("VergiDairesi", t.getString("VergiDairesi"));
+
+
+
                         CorpArrayList.add(CorpList);
                     }
                 } catch (final JSONException e) {
@@ -149,7 +159,8 @@ public class CorpList extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             adapter = new SimpleAdapter(CorpList.this, CorpArrayList, R.layout.corp_list,
-                    new String[]{"CorpId", "CorpName"}, new int[]{R.id.CorpId, R.id.CorpName});
+                    new String[]{"CorpId", "CorpName", "VergiDairesi","VergiNo","Adress"},
+                    new int[]{R.id.CorpId, R.id.CorpName,R.id.VergiDairesi,R.id.VergiNo,R.id.Adress});
             lv.setAdapter(adapter);
             mProgressDialog.dismiss();
         }

@@ -2,6 +2,7 @@ package com.eroglu.sevk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -37,8 +38,9 @@ public class CorpArticelActivity extends AppCompatActivity {
     ProgressDialog mProgressDialog;
     ListAdapter adapter;
     String jsonStr = "";
+    private TextView tablobaslik;
+    private String Vergi;
 
-    private SearchView editsearch;
     public static ArrayList<HashMap<String, String>> taleplerimList;
     private String TAG = CorpArticelActivity.class.getSimpleName();
     private ListView lv;
@@ -50,13 +52,26 @@ public class CorpArticelActivity extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         CorpId = bundle.getString("CorpId");
         CorpName = bundle.getString("CorpName");
+        Vergi=bundle.getString("Adres")+" " +bundle.getString("Vergi");
+
         getSupportActionBar().setTitle(CorpName);
+
+
+        tablobaslik = new TextView(this);
+        tablobaslik.setTextSize(16);
+        tablobaslik.setTextColor(Color.parseColor("#ffffff"));
+        tablobaslik.setBackgroundColor(Color.parseColor("#0078d4"));
+        tablobaslik.setHeight(150);
+        tablobaslik.setPadding(10,20,10,5);
+
+
+
+
 
 
         getSupportActionBar().setLogo(R.drawable.photo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
 
-        Log.d(TAG, "CorpArticelActivity Açıldı");
 
         new getTaleplerim().execute();
 
@@ -141,10 +156,19 @@ public class CorpArticelActivity extends AppCompatActivity {
                         HashMap<String, String> talepler = new HashMap<>();
                         talepler.put("id", ArticelId);
                         talepler.put("Que", "AT - " + ArticelId);
-                        talepler.put("ArticelName", ArticelName);
-                        talepler.put("CustomerName", CustomerName);
+                        talepler.put("ArticelName", ArticelName.toLowerCase());
+                        talepler.put("CustomerName", "");
                         taleplerimList.add(talepler);
+
+
+
+
                     }
+
+                    tablobaslik.setText(Vergi);
+                    tablobaslik.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
+
+                    lv.addHeaderView(tablobaslik);
                 } catch (final JSONException e) {
                     runOnUiThread(new Runnable() {
                         @Override
@@ -176,9 +200,10 @@ public class CorpArticelActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             adapter = new SimpleAdapter(CorpArticelActivity.this, taleplerimList,
-                    R.layout.item_list, new String[]{"id", "Que", "ArticelName", "CustomerName"},
-                    new int[]{R.id.ArticelId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
+                    R.layout.itemcorpactivity, new String[]{"id", "Que", "ArticelName"},
+                    new int[]{R.id.ArticelId, R.id.Que, R.id.ArticelName});
             lv.setAdapter(adapter);
+
             mProgressDialog.dismiss();
         }
     }
