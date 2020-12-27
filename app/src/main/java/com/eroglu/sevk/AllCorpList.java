@@ -1,8 +1,10 @@
 package com.eroglu.sevk;
 
 import android.app.ProgressDialog;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -12,6 +14,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.mindorks.placeholderview.PlaceHolderView;
@@ -48,7 +51,10 @@ public class AllCorpList extends AppCompatActivity {
         OrderArray = new ArrayList<>();
         OrderList = findViewById(R.id.CorpList); // listView
 
-        getSupportActionBar().setTitle("Vergi Bilgileri");
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Vergi Bilgileri</span>"));
 
 
         new getTalepDetaylari().execute();

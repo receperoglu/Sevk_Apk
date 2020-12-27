@@ -2,23 +2,24 @@ package com.eroglu.sevk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.ImageView;
+ import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.eroglu.sevk.gallery.ImageTypeBig;
-import com.mindorks.placeholderview.PlaceHolderView;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,10 +27,7 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 
-import static com.eroglu.sevk.DomainName.getRawURL;
-import static com.eroglu.sevk.DomainName.getURL;
 
 //adb connect 192.168.1.42:5555
 
@@ -54,7 +52,11 @@ public class ArticelDetailActivity extends AppCompatActivity {
 
         uploadactivitystart = findViewById(R.id.uploadactivitystart);
         articelfiles= findViewById(R.id.articelfiles);
-        getSupportActionBar().setTitle(ArticelName);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>"+ArticelName+"</span>"));
          PictureArray = new ArrayList<>();
 
         OrderArray = new ArrayList<>();

@@ -2,8 +2,10 @@ package com.eroglu.sevk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -14,6 +16,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.eroglu.sevk.gallery.ImageTypeBig;
@@ -52,6 +55,10 @@ public class ArticelFiles extends AppCompatActivity {
          pdflist = findViewById(R.id.pdflist);
         PictureArray = new ArrayList<>();
 
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Sipariş Dosyaları</span>"));
 
         mGalleryView = findViewById(R.id.galleryView);
 

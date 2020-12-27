@@ -5,10 +5,12 @@ import android.app.AlertDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
+import android.text.Html;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -16,6 +18,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
@@ -63,7 +66,15 @@ public class UploadActivity extends AppCompatActivity implements ImageContract.V
         setContentView(R.layout.upload_activity);
         Bundle bundle = getIntent().getExtras();
         ArticelId = bundle.getString("ArticelId");
-        getSupportActionBar().setTitle("Siparişe Fotoğraf Ekleyin");
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Siparişe Fotoğraf/Resim Ekleyin</span>"));
+
+
+
         userProfilePhoto = findViewById(R.id.newphoto);
         galleryselect = findViewById(R.id.galleryselect);
         preview = findViewById(R.id.preview);

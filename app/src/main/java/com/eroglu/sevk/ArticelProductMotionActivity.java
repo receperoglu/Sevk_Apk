@@ -2,8 +2,10 @@ package com.eroglu.sevk;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -64,7 +67,15 @@ public class ArticelProductMotionActivity extends AppCompatActivity {
 
         Bundle bundle = getIntent().getExtras();
 
-        getSupportActionBar().setTitle(bundle.getString("OrderName"));
+
+
+
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>"+bundle.getString("OrderName")+"</span>"));
 
         ArticelId = bundle.getString("OrderId");
         OrderArray = new ArrayList<>();

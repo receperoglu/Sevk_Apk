@@ -2,9 +2,11 @@ package com.eroglu.sevk;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -18,6 +20,7 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -43,8 +46,12 @@ public class CorpList extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_corplist);
-        getSupportActionBar().setTitle("Firmalar");
-         getSupportActionBar().setDisplayUseLogoEnabled(true);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Firmalar</span>"));
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
         new getTaleplerim().execute();
         CorpArrayList = new ArrayList<>();
         lv = findViewById(R.id.lv);

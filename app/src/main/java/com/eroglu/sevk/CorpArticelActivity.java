@@ -3,10 +3,12 @@ package com.eroglu.sevk;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -23,6 +25,7 @@ import android.widget.SearchView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import org.json.JSONArray;
@@ -54,7 +57,13 @@ public class CorpArticelActivity extends AppCompatActivity {
         CorpName = bundle.getString("CorpName");
         Vergi=bundle.getString("Adres")+" " +bundle.getString("Vergi");
 
-        getSupportActionBar().setTitle(CorpName);
+
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>"+CorpName+"</span>"));
+
 
 
         tablobaslik = new TextView(this);
