@@ -8,11 +8,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.Part;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
+
 public interface FileUploadService {
     @Multipart
     @POST("mobapi.ashx")

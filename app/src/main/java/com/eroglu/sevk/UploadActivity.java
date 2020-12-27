@@ -65,6 +65,7 @@ public class UploadActivity extends AppCompatActivity implements ImageContract.V
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_activity);
         Bundle bundle = getIntent().getExtras();
+        assert bundle != null;
         ArticelId = bundle.getString("ArticelId");
 
 
@@ -178,7 +179,7 @@ public class UploadActivity extends AppCompatActivity implements ImageContract.V
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             if (file != null) {
                 Uri mPhotoURI = FileProvider.getUriForFile(this,
-                        BuildConfig.APPLICATION_ID + ".provider", file);
+                        "com.eroglu.sevk"+ ".provider", file);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mPhotoURI);
                 mPhotoFile = file;
                 startActivityForResult(takePictureIntent, REQUEST_TAKE_PHOTO);

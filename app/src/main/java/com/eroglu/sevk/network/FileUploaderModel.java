@@ -14,11 +14,7 @@ import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
 import okhttp3.ResponseBody;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
+
 public class FileUploaderModel implements FileUploaderContract.Model {
     private final FileUploadService service;
     public static final String MULTIPART_FORM_DATA = "multipart/form-data";

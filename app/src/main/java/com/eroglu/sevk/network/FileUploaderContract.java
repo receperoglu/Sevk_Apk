@@ -4,11 +4,6 @@ import io.reactivex.Flowable;
 import io.reactivex.Single;
 import okhttp3.ResponseBody;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
 public class FileUploaderContract {
     public interface View {
         void showErrorMessage(String message);

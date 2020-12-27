@@ -1,6 +1,5 @@
 package com.eroglu.sevk.network;
 
-import com.eroglu.sevk.BuildConfig;
 
 import java.util.concurrent.TimeUnit;
 
@@ -9,11 +8,9 @@ import okhttp3.Request;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
+import static com.eroglu.sevk.DomainName.getRawURL;
+
+
 public class ServiceGenerator {
 
     public static FileUploadService createService() {
@@ -30,7 +27,7 @@ public class ServiceGenerator {
 
         return new Retrofit
                 .Builder()
-                .baseUrl(BuildConfig.BASE_URL)
+                .baseUrl(getRawURL())
                 .client(client)
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .build()

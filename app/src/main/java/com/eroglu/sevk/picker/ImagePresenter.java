@@ -2,11 +2,6 @@ package com.eroglu.sevk.picker;
 
 import java.io.File;
 
-/**
- * Created on : Jan 07, 2019
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
 public class ImagePresenter implements ImageContract.Presenter {
 
     private final ImageContract.View view;

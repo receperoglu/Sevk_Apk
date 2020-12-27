@@ -9,11 +9,6 @@ import java.util.concurrent.Callable;
 
 import io.reactivex.Flowable;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
 public class FileCompressor {
     //max width and height values of the compressed image is taken as 612x816
     private int maxWidth = 612;

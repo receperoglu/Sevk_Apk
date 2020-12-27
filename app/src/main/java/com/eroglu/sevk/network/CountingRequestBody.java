@@ -13,11 +13,6 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
 public class CountingRequestBody extends RequestBody {
 
     private final RequestBody delegate;

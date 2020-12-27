@@ -6,11 +6,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
 
-/**
- * Created on : Dec 30, 2018
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
+
 public class FileUploaderPresenter implements FileUploaderContract.Presenter {
 
     private final FileUploaderContract.Model model;

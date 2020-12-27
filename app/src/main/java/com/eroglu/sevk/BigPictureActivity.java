@@ -4,19 +4,16 @@ import android.app.Activity;
 import android.app.ProgressDialog;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.drawable.ColorDrawable;
-import android.os.AsyncTask;
+ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
-import android.text.Html;
-import android.util.Log;
+ import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import androidx.appcompat.app.ActionBar;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,8 +30,7 @@ public class BigPictureActivity extends Activity {
     Float scale = 1f;
     ScaleGestureDetector SGD;
     ImageView image;
-    ImageView gallerychoose;
-    ProgressDialog mProgressDialog;
+     ProgressDialog mProgressDialog;
 
     private ScaleGestureDetector mScaleGestureDetector;
     private float mScaleFactor = 1.0f;
@@ -46,7 +42,7 @@ public class BigPictureActivity extends Activity {
         setContentView(R.layout.bigpicture);
         Bundle bundle = getIntent().getExtras();
         Path = bundle.getString("Path");
-        uploadactivitystart = findViewById(R.id.uploadactivitystart);
+        uploadactivitystart = findViewById(R.id.download);
         image = findViewById(R.id.bigpicture);
 
         mImageView = (ImageView) findViewById(R.id.bigpicture);

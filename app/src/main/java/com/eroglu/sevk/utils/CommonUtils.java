@@ -11,12 +11,6 @@ import com.eroglu.sevk.R;
 import java.io.IOException;
 import java.io.InputStream;
 
-/**
- * Created on : Jan 11, 2019
- * Author     : AndroidWave
- * Website    : https://androidwave.com/
- */
-
 
 public final class CommonUtils {
     public static ProgressDialog mProgressDialog;

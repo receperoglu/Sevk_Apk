@@ -7,7 +7,7 @@
 
 
     <ImageView
-        android:id="@+id/uploadactivitystart"
+        android:id="@+id/download"
         android:layout_width="match_parent"
         android:layout_height="46dp"
         android:layout_weight="0"
