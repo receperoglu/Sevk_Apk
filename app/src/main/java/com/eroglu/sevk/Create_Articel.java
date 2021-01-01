@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
@@ -29,7 +30,9 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class NewOrder extends AppCompatActivity {
+import okio.Timeout;
+
+public class Create_Articel extends AppCompatActivity {
 
     ProgressDialog mProgressDialog;
     ListAdapter adapter;
@@ -38,7 +41,7 @@ public class NewOrder extends AppCompatActivity {
     String jsonStr = "";
     String jsonStrs = "";
     String articelid = "";
-
+    String artname="";
 
     String selectedcorp="";
     String selectedsaletype="";
@@ -47,11 +50,11 @@ public class NewOrder extends AppCompatActivity {
 
 
 
-     private String TAG = NewOrder.class.getSimpleName();
+     private String TAG = Create_Articel.class.getSimpleName();
     private ListView lv;
-    private TextView ordername;
-    private TextView orderlabel;
+    private EditText ordername;
 
+    private EditText newarticelid;
 
     private Button createbuton;
     private ListView saletype;
@@ -60,7 +63,7 @@ public class NewOrder extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_neworder);
+        setContentView(R.layout.activity_newarticel);
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
@@ -74,8 +77,8 @@ public class NewOrder extends AppCompatActivity {
         lv = findViewById(R.id.lv);
         createbuton=findViewById(R.id.create);
         saletype=findViewById(R.id.saletypelisview);
-orderlabel=findViewById(R.id.orderlabel);
-        ordername=findViewById(R.id.ordername);
+         ordername=findViewById(R.id.ordername);
+        newarticelid=findViewById(R.id.newarticelid);
          lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
@@ -86,8 +89,7 @@ orderlabel=findViewById(R.id.orderlabel);
 
                 lv.setVisibility(View.GONE);
                 saletype.setVisibility(View.VISIBLE);
-                overridePendingTransition(R.anim.sl, R.anim.sr);
-            }
+             }
         });
 
         saletype.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -97,25 +99,42 @@ orderlabel=findViewById(R.id.orderlabel);
 
                 selectedsaletype = ((TextView) view.findViewById(R.id.SaleTypeId)).getText().toString();
 
-
-                saletype.setVisibility(View.GONE);
-                ordername.setVisibility(View.VISIBLE);
                 createbuton.setVisibility(View.VISIBLE);
-                orderlabel.setVisibility(View.VISIBLE);
-                overridePendingTransition(R.anim.sl, R.anim.sr);
-            }
+                saletype.setVisibility(View.GONE);
+                 createbuton.setVisibility(View.VISIBLE);
+                 ordername.setVisibility(View.VISIBLE);
+              }
         });
 
         createbuton.setClickable(true);
+
         createbuton.setOnClickListener(new View.OnClickListener() {
+             public void onClick(View v) {
 
-            public void onClick(View v) {
+                new CreateArticel().execute();
 
-                HTTPConnection sh = new HTTPConnection();
-                articelid = String.valueOf(sh.makeServiceCall("post/AddArticel.ashx?CorpId="+
-                        selectedcorp+"&SaleType="+selectedsaletype+"&Articel="+ordername.getText()));
-                Log.d(TAG, "Yeni Artikel Id :    " + articelid);
-                overridePendingTransition(R.anim.sl, R.anim.sr);
+                 mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
+                 mProgressDialog.setTitle("Artikel Oluşturuluyor");
+                 mProgressDialog.setMessage("Lütfen Bekleyin");
+                 mProgressDialog.setIndeterminate(false);
+                 mProgressDialog.show();
+
+                 new android.os.Handler().postDelayed(
+                         new Runnable() {
+                             public void run() {
+                                 Intent intent = new Intent(v.getContext(), Create_Order.class);
+                                 intent.putExtra("ArticelId",  articelid);
+                                 intent.putExtra("ArticelName",artname );
+                                 intent.putExtra("CorpId", selectedcorp);
+                                 intent.putExtra("SaleTypeId", selectedsaletype);
+
+                                 startActivity(intent);
+                             }
+                         }, 5000);
+
+
+
+
             }
         });
 
@@ -129,6 +148,46 @@ orderlabel=findViewById(R.id.orderlabel);
         inflater.inflate(R.menu.menu, menu);
         return true;
     }
+
+
+
+    private class CreateArticel extends AsyncTask<Void, Void, Void> {
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
+            mProgressDialog.setTitle("Artikel Oluşturuluyor");
+            mProgressDialog.setMessage("Lütfen Bekleyin");
+            mProgressDialog.setIndeterminate(false);
+            mProgressDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+            HTTPConnection sh = new HTTPConnection();
+            articelid = String.valueOf(sh.makeServiceCall("post/AddArticel.ashx?CorpId="+
+                    selectedcorp+"&SaleType="+selectedsaletype+"&Articel="+ordername.getText() ));
+              overridePendingTransition(R.anim.sl, R.anim.sr);
+
+
+            return null;
+        }
+
+
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+
+            mProgressDialog.dismiss();
+        }
+    }
+
+
+
+
+
+
 
     public void Gallery(MenuItem item) {
         Log.d(TAG, "Galeri Tıklandı");
@@ -152,7 +211,7 @@ orderlabel=findViewById(R.id.orderlabel);
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(NewOrder.this, R.style.Theme_Design_BottomSheetDialog);
+            mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
             mProgressDialog.setTitle("Firmalar Listeleniyor");
             mProgressDialog.setMessage("Lütfen Bekleyin");
             mProgressDialog.setIndeterminate(false);
@@ -257,12 +316,12 @@ orderlabel=findViewById(R.id.orderlabel);
         @Override
          protected void onPostExecute(Void result) {
             super.onPostExecute(result);
-            adapter = new SimpleAdapter(NewOrder.this, CorpArrayList, R.layout.corp_list,
+            adapter = new SimpleAdapter(Create_Articel.this, CorpArrayList, R.layout.corp_list,
                     new String[]{"CorpId", "CorpName", "VergiDairesi","VergiNo","Adress"},
                     new int[]{R.id.CorpId, R.id.CorpName,R.id.VergiDairesi,R.id.VergiNo,R.id.Adress});
             lv.setAdapter(adapter);
 
-            SalesListAdapter = new SimpleAdapter(NewOrder.this, SaleArrayLists, R.layout.item_saletype,
+            SalesListAdapter = new SimpleAdapter(Create_Articel.this, SaleArrayLists, R.layout.item_saletype,
                     new String[]{"id", "Name"},
                     new int[]{R.id.SaleTypeId, R.id.SaleTypeName});
             saletype.setAdapter(SalesListAdapter);

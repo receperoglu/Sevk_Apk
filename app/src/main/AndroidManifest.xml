@@ -56,7 +56,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewOrder"
+            android:name=".Create_Articel"
+            android:label="@string/app_name"
+            android:theme="@style/AppTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".Create_Order"
             android:label="@string/app_name"
             android:theme="@style/AppTheme">
             <intent-filter>

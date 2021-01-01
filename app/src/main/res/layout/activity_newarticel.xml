@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ListView
+        android:id="@+id/lv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/corp_list" />
+
+    <ListView
+        android:id="@+id/saletypelisview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_saletype" />
+
+
+    <EditText
+        android:id="@+id/ordername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        android:background="@drawable/customedittext"
+android:padding="10dp"
+        android:layout_margin="5dp"
+        android:hint="Sipariş Adı">
+    </EditText>
+
+    <EditText
+        android:id="@+id/newarticelid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/order_name_description"
+        android:visibility="gone">
+    </EditText>
+
+    <Button
+        android:id="@+id/create"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#0078d7"
+        android:layout_gravity="bottom"
+        android:text="@string/create_order_btn_description"
+        android:textColor="#ffffff">
+    </Button>
+
+
+</LinearLayout>

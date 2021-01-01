@@ -24,5 +24,6 @@
     <string name="yenisiparis">Yeni Sipariş</string>
     <string name="create_order_btn_description">Oluştur</string>
     <string name="order_name_description">Sipariş Adı/No</string>
+    <string name="orderPieceDescription">Adet</string>
 </resources>
 

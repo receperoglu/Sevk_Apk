@@ -109,7 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Intent t = new Intent(this, NewOrder.class);
+        Intent t = new Intent(this, Create_Articel.class);
         startActivity(t);
     }
     public void newCustomer(MenuItem item) {

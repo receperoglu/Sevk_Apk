@@ -39,6 +39,19 @@ public class HTTPConnection {
                 parametre = "https://statu.space/abi/"+param;
 
             }
+            else if(param.contains( "post/AddOrder.ashx")){
+
+                parametre = "https://statu.space/abi/"+param;
+
+            }
+            else if(param.contains( "post/ProductType.ashx")){
+
+                parametre = "https://statu.space/abi/"+param;
+
+            }
+
+
+
             else{
 
                 parametre = baseurl+param;
