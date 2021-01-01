@@ -105,7 +105,14 @@ public class MainActivity extends AppCompatActivity {
         overridePendingTransition(R.anim.sl, R.anim.sr);
      }
 
-    public void openWayBils(MenuItem item) {
+    public void newOrder(MenuItem item) {
+
+
+
+        Intent t = new Intent(this, NewOrder.class);
+        startActivity(t);
+    }
+    public void newCustomer(MenuItem item) {
 
 
 

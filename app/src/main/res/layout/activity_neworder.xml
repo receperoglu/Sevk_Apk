@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+        <ListView
+            android:id="@+id/lv"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/corp_list" />
+        <ListView
+            android:id="@+id/saletypelisview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:listitem="@layout/item_saletype" />
+<TextView
+    android:id="@+id/orderlabel"
+    android:visibility="invisible"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@string/order_name_description"
+    >
+
+</TextView>
+        <TextView
+            android:layout_width="match_parent"
+
+            android:id="@+id/ordername"
+            android:text="@string/order_name_description"
+             android:layout_height="wrap_content" />
+<Button
+    android:id="@+id/create"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:background="#0078d7"
+    android:textColor="#ffffff"
+     android:text="@string/create_order_btn_description">
+
+</Button>
+
+
+
+
+
+
+</LinearLayout>

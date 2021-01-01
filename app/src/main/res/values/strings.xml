@@ -20,5 +20,9 @@
     <string name="menu_Siparisler">Siparişler</string>
     <string name="menu_Musteriler">Müşteriler</string>
     <string name="menu_Irsaliyeler">İrsaliyeler</string>
+    <string name="yenifirma">Yeni Firma</string>
+    <string name="yenisiparis">Yeni Sipariş</string>
+    <string name="create_order_btn_description">Oluştur</string>
+    <string name="order_name_description">Sipariş Adı/No</string>
 </resources>
 

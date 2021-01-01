@@ -58,12 +58,12 @@ public class ArticelProductMotionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.motionmain);
         tablobaslik = new TextView(this);
-        tablobaslik.setTextSize(20);
+        tablobaslik.setTextSize(16);
         tablobaslik.setTextColor(Color.parseColor("#3c763d"));
         tablobaslik.setBackgroundColor(Color.parseColor("#d6e9c6"));
          tablobaslik.setHeight(200);
-         tablobaslik.setPadding(250,50,100,20);
-        tablobaslik.setTextAlignment(View.TEXT_ALIGNMENT_GRAVITY);
+         tablobaslik.setPadding(50,50,50,20);
+        tablobaslik.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
 
         Bundle bundle = getIntent().getExtras();
 
@@ -75,7 +75,7 @@ public class ArticelProductMotionActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
 
-        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>"+bundle.getString("OrderName")+"</span>"));
+        actionBar.setTitle(Html.fromHtml("<span style='color: #ffffff;font-size: 12px'>"+bundle.getString("OrderName")+"</span>"));
 
         ArticelId = bundle.getString("OrderId");
         OrderArray = new ArrayList<>();

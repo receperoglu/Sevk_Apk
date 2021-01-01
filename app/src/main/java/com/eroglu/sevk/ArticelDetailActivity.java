@@ -29,8 +29,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-//adb connect 192.168.1.42:5555
-
+ 
 public class ArticelDetailActivity extends AppCompatActivity {
      public ImageView uploadactivitystart;
      public  TextView articelfiles;
