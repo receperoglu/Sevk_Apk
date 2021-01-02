@@ -4,7 +4,7 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorMenu</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">@color/colorOneDrive</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="actionBarItemBackground">@drawable/gallerychoose</item>
         <item name="actionBarTheme">@color/colorOneDrive</item>

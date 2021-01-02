@@ -33,7 +33,7 @@ import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity {
 
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
     ListAdapter adapter;
     ArrayList<HashMap<String, String>> taleplerimList;
     private String TAG = MainActivity.class.getSimpleName();
@@ -82,10 +82,11 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View view, int pos, long arg3) {
-                mProgressDialog = new ProgressDialog(MainActivity.this, R.style.Theme_Design_BottomSheetDialog);
-
-                mProgressDialog.setIndeterminate(false);
-                mProgressDialog.show();
+                progressDialog = new ProgressDialog(MainActivity.this);
+                progressDialog.setProgress(10);
+                progressDialog.setMax(100);
+                progressDialog.setTitle("Siparişler Getiriliyor");
+                progressDialog.setMessage("Lütfen Bekleyin");
 
                 Intent intent = new Intent(view.getContext(), Create_Order.class);
                 intent.putExtra("ArticelId", ((TextView) view.findViewById(R.id.ArticelId)).getText().toString());
@@ -149,12 +150,17 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(MainActivity.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Siparişler Getiriliyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
-        }
+
+
+
+
+
+            progressDialog = new ProgressDialog(MainActivity.this);
+             progressDialog.setProgress(10);
+            progressDialog.setMax(100);
+            progressDialog.setTitle("Siparişler Getiriliyor");
+            progressDialog.setMessage("Lütfen Bekleyin");
+         }
 
         @Override
         protected Void doInBackground(Void... arg0) {
@@ -216,7 +222,7 @@ public class MainActivity extends AppCompatActivity {
                     R.layout.item_list, new String[]{"id","SaleType","CorpId", "Que", "ArticelName", "CustomerName"},
                     new int[]{R.id.ArticelId,R.id.SaleType,R.id.CorpId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
             lv.setAdapter(adapter);
-            mProgressDialog.dismiss();
+           // mProgressDialog.dismiss();
         }
     }
 
