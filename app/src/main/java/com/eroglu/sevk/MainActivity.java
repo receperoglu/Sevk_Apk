@@ -81,11 +81,20 @@ public class MainActivity extends AppCompatActivity {
         lv.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
 
             @Override
-            public boolean onItemLongClick(AdapterView<?> arg0, View arg1, int pos, long arg3) {
+            public boolean onItemLongClick(AdapterView<?> arg0, View view, int pos, long arg3) {
                 mProgressDialog = new ProgressDialog(MainActivity.this, R.style.Theme_Design_BottomSheetDialog);
 
                 mProgressDialog.setIndeterminate(false);
                 mProgressDialog.show();
+
+                Intent intent = new Intent(view.getContext(), Create_Order.class);
+                intent.putExtra("ArticelId", ((TextView) view.findViewById(R.id.ArticelId)).getText().toString());
+                intent.putExtra("ArticelName", ((TextView) view.findViewById(R.id.ArticelName)).getText().toString());
+                intent.putExtra("SaleTypeId", ((TextView) view.findViewById(R.id.SaleType)).getText().toString());
+                intent.putExtra("CorpId", ((TextView) view.findViewById(R.id.CorpId)).getText().toString());
+
+                startActivity(intent);
+
 
                 return true;
             }
@@ -160,8 +169,14 @@ public class MainActivity extends AppCompatActivity {
                         String ArticelId = t.getString("id");
                         String ArticelName = t.getString("ArticelName");
                         String CustomerName = t.getString("CustomerName");
+                        String CorpId = t.getString("CorpId");
+                        String SaleType = t.getString("SaleType");
+
                         HashMap<String, String> talepler = new HashMap<>();
                         talepler.put("id", ArticelId);
+                        talepler.put("CorpId", CorpId);
+                        talepler.put("SaleType", SaleType);
+
                         talepler.put("Que", "AT - " + ArticelId);
                         talepler.put("ArticelName", ArticelName);
                         talepler.put("CustomerName", CustomerName);
@@ -198,11 +213,26 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             adapter = new SimpleAdapter(MainActivity.this, taleplerimList,
-                    R.layout.item_list, new String[]{"id", "Que", "ArticelName", "CustomerName"},
-                    new int[]{R.id.ArticelId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
+                    R.layout.item_list, new String[]{"id","SaleType","CorpId", "Que", "ArticelName", "CustomerName"},
+                    new int[]{R.id.ArticelId,R.id.SaleType,R.id.CorpId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
             lv.setAdapter(adapter);
             mProgressDialog.dismiss();
         }
     }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

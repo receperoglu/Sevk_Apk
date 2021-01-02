@@ -19,6 +19,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -76,6 +77,23 @@ public class Create_Order extends AppCompatActivity {
         articelname = bundle.getString("ArticelName");
 
         saletype = bundle.getString("SaleTypeId");
+
+
+
+
+
+
+
+
+
+
+        Toast.makeText(getApplicationContext(),
+                "Başarılı", Toast.LENGTH_LONG).show();
+
+
+
+
+
         Log.d(TAG, "articelname  :    " + articelname);
         ProductArrayLists = new ArrayList<>();
         createbuton = findViewById(R.id.createorder);
@@ -109,17 +127,7 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
                 mProgressDialog.setIndeterminate(false);
                 mProgressDialog.show();
 
-                new android.os.Handler().postDelayed(
-                        new Runnable() {
-                            public void run() {
-                                oPiece.setText("");
-                                oDimensions.setText("");
-                                oColor.setText("");
 
-                                mProgressDialog.dismiss();
-
-                            }
-                        }, 1000);
 
             }
         });
@@ -229,11 +237,14 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
                             "&SaleType=" + saletype +
                             "&ArticelId=" + articelid +
                             "&ProductType=" + selectedProducttype +
-                            "&Piece=" + oPiece.getText() +
-                            "&Color=" + oColor.getText() +
-                            "&Dimensions=" + oDimensions.getText() + "&Articel=" + articelname));
-            Log.d(TAG, "Yeni Order Id :    " + articelid);
-            overridePendingTransition(R.anim.sl, R.anim.sr);
+                            "&Piece=" + oPiece.getText().toString().trim() +
+                            "&Color=" + oColor.getText().toString().trim() +
+                            "&Dimensions=" + oDimensions.getText().toString().trim() + "&Articel=" + articelname));
+
+
+
+
+
             return null;
         }
 
