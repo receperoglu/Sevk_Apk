@@ -7,10 +7,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -19,7 +16,6 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +29,7 @@ import java.util.HashMap;
 
 public class Create_Order extends AppCompatActivity {
 
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
     ListAdapter ProductsListAdapter;
 
     String jsonStr = "";
@@ -69,7 +65,7 @@ public class Create_Order extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
 
-        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Firma Seç</span>"));
+        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Ürün Tipi Seç</span>"));
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         new VoidJson().execute();
         corpid = bundle.getString("CorpId");
@@ -79,22 +75,6 @@ public class Create_Order extends AppCompatActivity {
         saletype = bundle.getString("SaleTypeId");
 
 
-
-
-
-
-
-
-
-
-        Toast.makeText(getApplicationContext(),
-                "Başarılı", Toast.LENGTH_LONG).show();
-
-
-
-
-
-        Log.d(TAG, "articelname  :    " + articelname);
         ProductArrayLists = new ArrayList<>();
         createbuton = findViewById(R.id.createorder);
         Producttype = findViewById(R.id.producttypelisview);
@@ -109,9 +89,13 @@ public class Create_Order extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
                 selectedProducttype = ((TextView) view.findViewById(R.id.ProductTypeId)).getText().toString();
-metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toString());
+                metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toString());
                 Producttype.setVisibility(View.GONE);
                 createbuton.setVisibility(View.VISIBLE);
+                ActionBar actionBar = getSupportActionBar();
+                actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+
+                actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Detay Girin</span>"));
             }
         });
 
@@ -121,12 +105,18 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
                 new SaveOrder().execute();
 
 
-                mProgressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
-                mProgressDialog.setTitle("Artikel Oluşturuluyor");
-                mProgressDialog.setMessage("Lütfen Bekleyin");
-                mProgressDialog.setIndeterminate(false);
-                mProgressDialog.show();
+                progressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
+                progressDialog.setTitle("Kaydediliyor");
+                progressDialog.setMessage("Lütfen Bekleyin");
+                progressDialog.setIndeterminate(false);
+                progressDialog.show();
 
+                new android.os.Handler().postDelayed(
+                        new Runnable() {
+                            public void run() {
+
+                            }
+                        }, 1000);
 
 
             }
@@ -140,11 +130,11 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Firmalar Listeleniyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
+            progressDialog.setTitle("Firmalar Listeleniyor");
+            progressDialog.setMessage("Lütfen Bekleyin");
+            progressDialog.setIndeterminate(false);
+            progressDialog.show();
         }
 
         @Override
@@ -205,12 +195,12 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
 
 
             ProductsListAdapter = new SimpleAdapter(Create_Order.this, ProductArrayLists, R.layout.item_producttype,
-                    new String[]{"id", "Name","MetricTypeName"},
-                    new int[]{R.id.ProductTypeId, R.id.ProductTypeName,R.id.MetricTypeName});
+                    new String[]{"id", "Name", "MetricTypeName"},
+                    new int[]{R.id.ProductTypeId, R.id.ProductTypeName, R.id.MetricTypeName});
             Producttype.setAdapter(ProductsListAdapter);
 
-
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
+            progressDialog.hide();
         }
     }
 
@@ -219,11 +209,7 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Kaydediliyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+
         }
 
         @Override
@@ -242,9 +228,6 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
                             "&Dimensions=" + oDimensions.getText().toString().trim() + "&Articel=" + articelname));
 
 
-
-
-
             return null;
         }
 
@@ -252,7 +235,14 @@ metric.setText(((TextView) view.findViewById(R.id.MetricTypeName)).getText().toS
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
+            progressDialog.hide();
+
+            oPiece.setText("");
+            oDimensions.setText("");
+            oColor.setText("");
+            Producttype.setVisibility(View.VISIBLE);
+            createbuton.setVisibility(View.INVISIBLE);
         }
     }
 }
