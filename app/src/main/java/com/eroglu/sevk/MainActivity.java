@@ -8,7 +8,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.view.MenuItem;
+  import android.view.Menu;
+  import android.view.MenuInflater;
+  import android.view.MenuItem;
 import android.view.View;
 
 
@@ -50,7 +52,8 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
-        actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Siparişler</span>"));
+        actionBar.setTitle("Siparişler");
+
 
 
         new getTaleplerim().execute();
@@ -102,6 +105,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        ((MenuInflater) inflater).inflate(R.menu.newact, menu);
+        return true;
     }
 
 

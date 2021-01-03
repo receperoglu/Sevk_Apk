@@ -6,32 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:id="@+id/top_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="26dp"
 
-
-        android:layout_gravity="top"
-        android:layout_margin="0dp"
-        android:layout_marginStart="0dp"
-        android:layout_marginLeft="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginRight="0dp"
-        android:layout_marginBottom="0dp"
-        android:elevation="0dp"
-        android:fadingEdge="horizontal"
-        android:filterTouchesWhenObscured="false"
-        android:fitsSystemWindows="false"
-        android:minWidth="10dp"
-        android:minHeight="10dp"
-        android:persistentDrawingCache="all"
-         app:elevation="0dp"
-        app:itemIconSize="0dp"
-        app:itemTextColor="@color/bluevar1"
-        app:labelVisibilityMode="labeled"
-        app:menu="@menu/newact" />
 
     <FrameLayout
         android:id="@+id/mainFrameLayout"
