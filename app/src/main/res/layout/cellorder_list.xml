@@ -15,33 +15,22 @@
 
 
     <TextView
-        android:id="@+id/Quee"
-        android:layout_width="wrap_content"
-        android:layout_height="60sp"
-
-        android:width="60sp"
-        android:background="#0091EA"
-
-
-        android:gravity="center"
-        android:text="TextView"
-        android:textAlignment="center"
-        android:textColor="#ffffff"
-        android:textSize="24sp" />
-
-    <TextView
         android:id="@+id/Product"
 
 
         android:layout_width="wrap_content"
-android:singleLine="true"
         android:layout_height="43dp"
+        android:layout_margin="5dp"
         android:layout_marginTop="0sp"
         android:width="350sp"
+        android:background="@color/bluevar2"
         android:gravity="left"
+        android:maxLines="5"
+        android:minLines="2"
         android:paddingLeft="10sp"
-        android:text="TextView"
-        android:textColor="#000000"
+        android:singleLine="false"
+        android:text="ürünadı"
+        android:textColor="#fff"
         android:textSize="14sp" />
 
 

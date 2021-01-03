@@ -211,8 +211,8 @@ public class ArticelDetailActivity extends AppCompatActivity {
             super.onPostExecute(result);
 
             ListAdapter adapter = new SimpleAdapter(ArticelDetailActivity.this, OrderArray,
-                    R.layout.cellorder_list, new String[]{"OrderId", "Quee", "Product"},
-                    new int[]{R.id.OrderId, R.id.Quee, R.id.Product});
+                    R.layout.cellorder_list, new String[]{"OrderId", "Product"},
+                    new int[]{R.id.OrderId,  R.id.Product});
             OrderList.setAdapter(adapter);
             progressDialog.dismiss();
         }

@@ -139,7 +139,7 @@ public class ArticelFiles extends AppCompatActivity {
                 if (url.contains(".pdf") || url.contains(".xls")) {
                     ListAdapter adapter2 = new SimpleAdapter(ArticelFiles.this, PictureArray,
                             R.layout.cellorder_list, new String[]{"Quee", "Quee", "Path"},
-                            new int[]{R.id.OrderId, R.id.Quee, R.id.Product});
+                            new int[]{R.id.OrderId, R.id.Product});
                     pdflist.setAdapter(adapter2);
                 } else {
                     mGalleryView.addView(new ImageTypeBig(getApplicationContext(), mGalleryView, imageList.get(i).getImageUrl()));
