@@ -7,6 +7,9 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
  import android.widget.ImageView;
@@ -94,6 +97,54 @@ public class ArticelDetailActivity extends AppCompatActivity {
         });
 
         new getTalepDetaylari().execute();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        ((MenuInflater) inflater).inflate(R.menu.newact, menu);
+        return true;
+    }
+
+
+    public void openCustomers(MenuItem item) {
+
+
+
+        Intent t = new Intent(this, CorpList.class);
+        startActivity(t);
+        overridePendingTransition(R.anim.sl, R.anim.sr);
+    }
+
+    public void newOrder(MenuItem item) {
+
+
+
+        Intent t = new Intent(this, Create_Articel.class);
+        startActivity(t);
+    }
+    public void newCustomer(MenuItem item) {
+
+
+
+        Intent t = new Intent(this, CorpArticelActivity.class);
+        startActivity(t);
+    }
+
+
+
+    public void Gallery(MenuItem item) {
+        Log.d(TAG, "Galeri Tıklandı");
+    }
+
+
+
+    public void Photo(MenuItem item) {
+        Log.d(TAG, "Foto Tıklandı");
+    }
+
+    public void Share(MenuItem item) {
+        Log.d(TAG, "Paylaş Tıklandı");
     }
 
     private class getTalepDetaylari extends AsyncTask<Void, Void, Void> {
