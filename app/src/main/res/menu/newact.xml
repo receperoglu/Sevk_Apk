@@ -2,16 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/navigation_neworder"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:onClick="newOrder"
+         android:onClick="newOrder"
 
-        android:title="@string/yenisiparis" />
+        android:title="Yeni Sipariş Oluştur"/>
 
     <item
         android:id="@+id/navigation_newcustomer"
-        android:icon="@android:drawable/ic_menu_sort_by_size"
-        android:onClick="newCustomer"
+         android:onClick="newCustomer"
 
-        android:title="@string/yenifirma" />
+        android:title="Yeni Firma Ekle" />
 
 </menu>

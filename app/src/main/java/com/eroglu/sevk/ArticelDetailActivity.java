@@ -53,7 +53,7 @@ public class ArticelDetailActivity extends AppCompatActivity {
         articelfiles= findViewById(R.id.articelfiles);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>"+ArticelName+"</span>"));
          PictureArray = new ArrayList<>();

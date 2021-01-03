@@ -48,7 +48,7 @@ public class CorpList extends AppCompatActivity {
         setContentView(R.layout.activity_corplist);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Firmalar</span>"));
         getSupportActionBar().setDisplayUseLogoEnabled(true);

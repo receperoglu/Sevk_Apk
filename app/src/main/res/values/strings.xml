@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Sevk</string>
-    <string name="fileupload">Dosya Ekle</string>
     <string name="take_photo">Foto Çek</string>
     <string name="choose_gallery">Foto Seç</string>
     <string name="cancel">Vazgeç</string>
@@ -12,16 +11,8 @@
     <string name="files">Dosyalar</string>
 
     <string name="file_upload_successful">Dosya Yüklendi</string>
-    <string name="title_activity_bottom_nav">MainActivity</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
-    <string name="textview">TextView</string>
     <string name="menu_Siparisler">Siparişler</string>
     <string name="menu_Musteriler">Müşteriler</string>
-    <string name="menu_Irsaliyeler">İrsaliyeler</string>
-    <string name="yenifirma">Yeni Firma</string>
-    <string name="yenisiparis">Yeni Sipariş</string>
     <string name="create_order_btn_description">Oluştur</string>
     <string name="order_name_description">Sipariş Adı/No</string>
     <string name="orderPieceDescription">Adet</string>

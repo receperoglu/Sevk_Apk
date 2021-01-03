@@ -52,7 +52,7 @@ public class AllCorpList extends AppCompatActivity {
         OrderList = findViewById(R.id.CorpList); // listView
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Vergi Bilgileri</span>"));
 

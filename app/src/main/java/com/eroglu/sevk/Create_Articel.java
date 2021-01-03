@@ -66,7 +66,7 @@ public class Create_Articel extends AppCompatActivity {
         setContentView(R.layout.activity_newarticel);
 
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Firma Seç</span>"));
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -86,7 +86,10 @@ public class Create_Articel extends AppCompatActivity {
 
                selectedcorp = ((TextView) view.findViewById(R.id.CorpId)).getText().toString();
 
+                ActionBar actionBar = getSupportActionBar();
+                actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
+                actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>İşlem Tipi Seç Sipariş Adı Gir</span>"));
                 lv.setVisibility(View.GONE);
                 saletype.setVisibility(View.VISIBLE);
              }

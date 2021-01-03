@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:orientation="vertical">
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/top_navigation"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="top"
-        android:background="#dff0d8"
-        android:fadingEdge="horizontal|vertical"
+        android:layout_height="26dp"
 
-        app:itemTextColor="#3c763d"
+
+        android:layout_gravity="top"
+        android:layout_margin="0dp"
+        android:layout_marginStart="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:elevation="0dp"
+        android:fadingEdge="horizontal"
+        android:filterTouchesWhenObscured="false"
+        android:fitsSystemWindows="false"
+        android:minWidth="10dp"
+        android:minHeight="10dp"
+        android:persistentDrawingCache="all"
+         app:elevation="0dp"
+        app:itemIconSize="0dp"
+        app:itemTextColor="@color/bluevar1"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/newact" />
+
     <FrameLayout
         android:id="@+id/mainFrameLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -41,7 +57,6 @@
             tools:listitem="@layout/item_list" />
 
     </FrameLayout>
-
 
 
 </LinearLayout>

@@ -63,7 +63,7 @@ public class Create_Order extends AppCompatActivity {
         setContentView(R.layout.activity_neworder);
         Bundle bundle = getIntent().getExtras();
         ActionBar actionBar = getSupportActionBar();
-        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+        actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Ürün Tipi Seç</span>"));
         getSupportActionBar().setDisplayUseLogoEnabled(true);
@@ -93,7 +93,7 @@ public class Create_Order extends AppCompatActivity {
                 Producttype.setVisibility(View.GONE);
                 createbuton.setVisibility(View.VISIBLE);
                 ActionBar actionBar = getSupportActionBar();
-                actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.colorOneDrive)));
+                actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar2)));
 
                 actionBar.setTitle(Html.fromHtml("<span style='color:#ffffff'>Detay Girin</span>"));
             }

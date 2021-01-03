@@ -3,11 +3,10 @@
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorMenu</item>
-        <item name="colorPrimaryDark">@color/colorOneDrive</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="actionBarItemBackground">@drawable/gallerychoose</item>
-        <item name="actionBarTheme">@color/colorOneDrive</item>
+        <item name="colorPrimary">@color/bluevar2</item>
+        <item name="colorPrimaryDark">@color/bluevar4</item>
+        <item name="colorAccent">@color/bluevar3</item>
+         <item name="actionBarTheme">@color/bluevar1</item>
     </style>
 
 </resources>

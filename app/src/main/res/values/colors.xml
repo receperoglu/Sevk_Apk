@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#03A9F4</color>
-    <color name="colorOneDrive">#03A9F4</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
-    <color name="colorMenu">#eaeaea</color>
+
+
+    <color name="bluevar1">#0078d4</color>
+    <color name="bluevar2">#006fc2</color>
+    <color name="bluevar3">#0064af</color>
+    <color name="bluevar4">#03A9F4</color>
+    <color name="bluevar5">#03A9F4</color>
+
+    <color name="blackvar1">#323130</color>
+
+
+    <color name="greyvar1">#f2f2f2</color>
+    <color name="greyvar2">#eaeaea</color>
+    <color name="greyvar3">#999</color>
+
+
+
+
+
 
 </resources>

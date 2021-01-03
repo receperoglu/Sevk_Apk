@@ -4,7 +4,7 @@
     <stroke
         android:width="1dp"
 
-        android:color="@color/colorOneDrive" />
+        android:color="@color/bluevar1" />
 
     <corners android:radius="4dp" />
 </shape>
