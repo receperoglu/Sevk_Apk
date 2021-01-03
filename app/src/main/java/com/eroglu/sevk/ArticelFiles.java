@@ -63,6 +63,8 @@ public class ArticelFiles extends AppCompatActivity {
         mGalleryView = findViewById(R.id.galleryView);
 
 
+
+
         pdflist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {

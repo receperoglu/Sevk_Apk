@@ -7,7 +7,6 @@
         <item name="colorPrimaryDark">@color/bluevar4</item>
         <item name="colorAccent">@color/bluevar3</item>
          <item name="actionBarTheme">@color/bluevar1</item>
-         <item name="android:textColorPrimary">@color/greyvar2</item>
 
     </style>
 

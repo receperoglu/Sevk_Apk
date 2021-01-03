@@ -12,8 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
- import android.widget.ImageView;
-import android.widget.ListAdapter;
+ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -34,13 +33,14 @@ import java.util.HashMap;
 
  
 public class ArticelDetailActivity extends AppCompatActivity {
-     public ImageView uploadactivitystart;
-     public  TextView articelfiles;
+
      ArrayList<HashMap<String, String>> OrderArray;
     ArrayList<HashMap<String, String>> PictureArray;
     ProgressDialog progressDialog;
      private String ArticelName;
     private String ArticelId;
+    private  String CorpId;
+    private String SaleTypeId;
     private String TAG = MainActivity.class.getSimpleName();
     private ListView OrderList;
 
@@ -52,8 +52,9 @@ public class ArticelDetailActivity extends AppCompatActivity {
         ArticelId = bundle.getString("ArticelId");
         ArticelName = bundle.getString("ArticelName");
 
-        uploadactivitystart = findViewById(R.id.uploadactivitystart);
-        articelfiles= findViewById(R.id.articelfiles);
+        CorpId = bundle.getString("CorpId");
+
+        SaleTypeId = bundle.getString("SaleTypeId");
 
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
@@ -63,25 +64,9 @@ public class ArticelDetailActivity extends AppCompatActivity {
 
         OrderArray = new ArrayList<>();
         OrderList = findViewById(R.id.OrderList); // listView
-        uploadactivitystart.setClickable(true);
-        articelfiles.setClickable(true);
-        uploadactivitystart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), UploadActivity.class);
-                intent.putExtra("ArticelId", ArticelId);
-                startActivity(intent);
-            }
-        });
 
-        articelfiles.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ArticelFiles.class);
-                intent.putExtra("ArticelId", ArticelId);
-                startActivity(intent);
-            }
-        });
+
+
         OrderList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
@@ -102,50 +87,56 @@ public class ArticelDetailActivity extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        ((MenuInflater) inflater).inflate(R.menu.newact, menu);
+        ((MenuInflater) inflater).inflate(R.menu.articeldetailmenu, menu);
         return true;
     }
 
 
-    public void openCustomers(MenuItem item) {
 
 
 
-        Intent t = new Intent(this, CorpList.class);
-        startActivity(t);
+
+
+
+
+
+    public void openFiles(MenuItem item) {
+
+        Intent intent = new Intent(this, ArticelFiles.class);
+        intent.putExtra("ArticelId", ArticelId);
+        startActivity(intent);
+        overridePendingTransition(R.anim.sl, R.anim.sr);
+    }
+
+    public void addPhotos(MenuItem item) {
+        Intent intent = new Intent(this, UploadActivity.class);
+        intent.putExtra("ArticelId", ArticelId);
+        startActivity(intent);
         overridePendingTransition(R.anim.sl, R.anim.sr);
     }
 
     public void newOrder(MenuItem item) {
-
-
-
         Intent t = new Intent(this, Create_Articel.class);
         startActivity(t);
     }
-    public void newCustomer(MenuItem item) {
+    public void producutOut(MenuItem item) {
 
 
 
         Intent t = new Intent(this, CorpArticelActivity.class);
         startActivity(t);
     }
-
-
-
-    public void Gallery(MenuItem item) {
-        Log.d(TAG, "Galeri Tıklandı");
+    public void newProduct(MenuItem item) {
+        Intent intent = new Intent(this, Create_Order.class);
+        intent.putExtra("ArticelId", ArticelId);
+        intent.putExtra("ArticelName", ArticelName);
+        intent.putExtra("SaleTypeId",SaleTypeId);
+        intent.putExtra("CorpId", CorpId);
+        startActivity(intent);
     }
 
 
 
-    public void Photo(MenuItem item) {
-        Log.d(TAG, "Foto Tıklandı");
-    }
-
-    public void Share(MenuItem item) {
-        Log.d(TAG, "Paylaş Tıklandı");
-    }
 
     private class getTalepDetaylari extends AsyncTask<Void, Void, Void> {
         @Override

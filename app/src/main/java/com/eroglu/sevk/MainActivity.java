@@ -63,12 +63,13 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long id) {
 
-                String Articel = ((TextView) view.findViewById(R.id.ArticelId)).getText().toString();
-                String ArticelName = ((TextView) view.findViewById(R.id.ArticelName)).getText().toString();
+
 
                 Intent intent = new Intent(view.getContext(), ArticelDetailActivity.class);
-                intent.putExtra("ArticelId", Articel);
-                intent.putExtra("ArticelName", ArticelName);
+                intent.putExtra("ArticelId", ((TextView) view.findViewById(R.id.ArticelId)).getText().toString());
+                intent.putExtra("ArticelName", ((TextView) view.findViewById(R.id.ArticelName)).getText().toString());
+                intent.putExtra("SaleTypeId", ((TextView) view.findViewById(R.id.SaleType)).getText().toString());
+                intent.putExtra("CorpId", ((TextView) view.findViewById(R.id.CorpId)).getText().toString());
                 startActivity(intent);
                 overridePendingTransition(R.anim.sl, R.anim.sr);
             }
