@@ -31,12 +31,8 @@ import java.util.HashMap;
 
 public class ArticelProductMotionActivity extends AppCompatActivity {
 
-    public String ArticelNameHead;
-    public TextView irsaliyebilgisiyok;
-    ArrayList<HashMap<String, String>> OrderArray;
-    ArrayList<HashMap<String, String>> tekliflerimList;
-    ImageView resims;
-    private String ArticelId;
+      ArrayList<HashMap<String, String>> OrderArray;
+     private String ArticelId;
     private String TAG = MainActivity.class.getSimpleName();
     private ListView OrderList;
     private TextView tablobaslik;

@@ -38,7 +38,7 @@ public class ArticelDetailActivity extends AppCompatActivity {
      public  TextView articelfiles;
      ArrayList<HashMap<String, String>> OrderArray;
     ArrayList<HashMap<String, String>> PictureArray;
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
      private String ArticelName;
     private String ArticelId;
     private String TAG = MainActivity.class.getSimpleName();
@@ -208,11 +208,11 @@ public class ArticelDetailActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(ArticelDetailActivity.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Siparişler Getiriliyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(ArticelDetailActivity.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -223,7 +223,7 @@ public class ArticelDetailActivity extends AppCompatActivity {
                     R.layout.cellorder_list, new String[]{"OrderId", "Quee", "Product"},
                     new int[]{R.id.OrderId, R.id.Quee, R.id.Product});
             OrderList.setAdapter(adapter);
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 }

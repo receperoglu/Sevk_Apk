@@ -16,14 +16,15 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
 
-            android:width="90sp"
-            android:textColor="#0078d4"
+            android:width="50sp"
+            android:background="#fff"
             android:fontFamily="sans-serif-medium"
 
             android:gravity="center"
 
             android:text="TextView"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textColor="@color/bluevar1" />
 
         <TextView
             android:id="@+id/ArticelId"
@@ -49,12 +50,12 @@
 
             android:foregroundTint="#2196F3"
 
-            android:paddingLeft="90sp"
+            android:paddingLeft="50sp"
             android:paddingTop="5sp"
-            android:paddingRight="40sp"
+            android:paddingRight="10sp"
+            android:singleLine="true"
             android:text="TextView"
-            android:textColor="#2196F3"
-            android:singleLine="true"/>
+            android:textColor="#2196F3" />
 
         <TextView
             android:id="@+id/CustomerName"
@@ -63,8 +64,8 @@
 
             android:layout_marginTop="25sp"
 
-            android:paddingLeft="90sp"
-            android:paddingRight="40sp"
+            android:paddingLeft="50sp"
+            android:paddingRight="10sp"
             android:text="TextView" />
 
         <ImageView

@@ -34,7 +34,7 @@ import okio.Timeout;
 
 public class Create_Articel extends AppCompatActivity {
 
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
     ListAdapter adapter;
     ListAdapter SalesListAdapter;
 
@@ -116,11 +116,11 @@ public class Create_Articel extends AppCompatActivity {
 
                 new CreateArticel().execute();
 
-                 mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
-                 mProgressDialog.setTitle("Artikel Oluşturuluyor");
-                 mProgressDialog.setMessage("Lütfen Bekleyin");
-                 mProgressDialog.setIndeterminate(false);
-                 mProgressDialog.show();
+                 progressDialog = new ProgressDialog(Create_Articel.this);
+                 progressDialog.setMessage("Lütfen Bekleyin");
+
+
+                 progressDialog.show();
 
                  new android.os.Handler().postDelayed(
                          new Runnable() {
@@ -158,11 +158,11 @@ public class Create_Articel extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Artikel Oluşturuluyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(Create_Articel.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -182,7 +182,7 @@ public class Create_Articel extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 
@@ -214,11 +214,11 @@ public class Create_Articel extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(Create_Articel.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Firmalar Listeleniyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(Create_Articel.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -330,7 +330,7 @@ public class Create_Articel extends AppCompatActivity {
             saletype.setAdapter(SalesListAdapter);
 
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 }

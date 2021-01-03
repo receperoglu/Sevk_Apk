@@ -38,7 +38,7 @@ import java.util.HashMap;
 public class CorpArticelActivity extends AppCompatActivity {
     public String CorpName;
     public String CorpId;
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
     ListAdapter adapter;
     String jsonStr = "";
     private TextView tablobaslik;
@@ -142,11 +142,11 @@ public class CorpArticelActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(CorpArticelActivity.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Siparişler Getiriliyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(CorpArticelActivity.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -213,7 +213,7 @@ public class CorpArticelActivity extends AppCompatActivity {
                     new int[]{R.id.ArticelId, R.id.Que, R.id.ArticelName});
             lv.setAdapter(adapter);
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 

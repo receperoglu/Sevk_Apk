@@ -1,19 +1,17 @@
 package com.eroglu.sevk;
 
-  import android.app.ProgressDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
- import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.ColorDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-  import android.view.Menu;
-  import android.view.MenuInflater;
-  import android.view.MenuItem;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
-
-
 
 
 import android.widget.AdapterView;
@@ -34,8 +32,8 @@ import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
-
     ProgressDialog progressDialog;
+
     ListAdapter adapter;
     ArrayList<HashMap<String, String>> taleplerimList;
     private String TAG = MainActivity.class.getSimpleName();
@@ -48,19 +46,16 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.bluevar1)));
 
         actionBar.setTitle("Siparişler");
 
 
-
         new getTaleplerim().execute();
 
         taleplerimList = new ArrayList<>();
         lv = findViewById(R.id.lv);
-
 
 
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -86,10 +81,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onItemLongClick(AdapterView<?> arg0, View view, int pos, long arg3) {
                 progressDialog = new ProgressDialog(MainActivity.this);
-                progressDialog.setProgress(10);
-                progressDialog.setMax(100);
-                progressDialog.setTitle("Siparişler Getiriliyor");
                 progressDialog.setMessage("Lütfen Bekleyin");
+
+
+                progressDialog.show();
+
 
                 Intent intent = new Intent(view.getContext(), Create_Order.class);
                 intent.putExtra("ArticelId", ((TextView) view.findViewById(R.id.ArticelId)).getText().toString());
@@ -106,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -114,25 +111,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void openCustomers(MenuItem item) {
 
 
-
         Intent t = new Intent(this, CorpList.class);
-         startActivity(t);
+        startActivity(t);
         overridePendingTransition(R.anim.sl, R.anim.sr);
-     }
+    }
 
     public void newOrder(MenuItem item) {
-
 
 
         Intent t = new Intent(this, Create_Articel.class);
         startActivity(t);
     }
-    public void newCustomer(MenuItem item) {
 
+    public void newCustomer(MenuItem item) {
 
 
         Intent t = new Intent(this, CorpArticelActivity.class);
@@ -140,11 +134,9 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
     public void Gallery(MenuItem item) {
         Log.d(TAG, "Galeri Tıklandı");
     }
-
 
 
     public void Photo(MenuItem item) {
@@ -160,16 +152,13 @@ public class MainActivity extends AppCompatActivity {
         protected void onPreExecute() {
             super.onPreExecute();
 
-
-
-
-
             progressDialog = new ProgressDialog(MainActivity.this);
-             progressDialog.setProgress(10);
-            progressDialog.setMax(100);
-            progressDialog.setTitle("Siparişler Getiriliyor");
             progressDialog.setMessage("Lütfen Bekleyin");
-         }
+
+
+            progressDialog.show();
+
+        }
 
         @Override
         protected Void doInBackground(Void... arg0) {
@@ -192,7 +181,7 @@ public class MainActivity extends AppCompatActivity {
                         talepler.put("CorpId", CorpId);
                         talepler.put("SaleType", SaleType);
 
-                        talepler.put("Que", "AT - " + ArticelId);
+                        talepler.put("Que", ArticelId);
                         talepler.put("ArticelName", ArticelName);
                         talepler.put("CustomerName", CustomerName);
                         taleplerimList.add(talepler);
@@ -228,10 +217,10 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             adapter = new SimpleAdapter(MainActivity.this, taleplerimList,
-                    R.layout.item_list, new String[]{"id","SaleType","CorpId", "Que", "ArticelName", "CustomerName"},
-                    new int[]{R.id.ArticelId,R.id.SaleType,R.id.CorpId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
+                    R.layout.item_list, new String[]{"id", "SaleType", "CorpId", "Que", "ArticelName", "CustomerName"},
+                    new int[]{R.id.ArticelId, R.id.SaleType, R.id.CorpId, R.id.Que, R.id.ArticelName, R.id.CustomerName});
             lv.setAdapter(adapter);
-           // mProgressDialog.dismiss();
+          progressDialog.dismiss();
         }
     }
 

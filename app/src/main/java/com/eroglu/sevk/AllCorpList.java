@@ -6,18 +6,14 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Html;
 import android.util.Log;
-import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.ListAdapter;
+  import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
-import android.widget.TextView;
-import android.widget.Toast;
+ import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.mindorks.placeholderview.PlaceHolderView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -29,20 +25,12 @@ import java.util.HashMap;
 //adb connect 192.168.137.54:5555
 
 public class AllCorpList extends AppCompatActivity {
-    public String ArticelNameHead;
-    public EditText ArticelView;
-    public TextView ArtNameTXt;
-    public ImageView uploadactivitystart;
-    JSONArray ImageListe = null;
-    ArrayList<HashMap<String, String>> OrderArray;
-    ArrayList<HashMap<String, String>> PictureArray;
-    ProgressDialog mProgressDialog;
-    private PlaceHolderView mGalleryView;
-    private String ArticelName;
-    private String ArticelId;
+
+     ArrayList<HashMap<String, String>> OrderArray;
+     ProgressDialog progressDialog;
+
     private String TAG = MainActivity.class.getSimpleName();
     private ListView OrderList;
-    private ListView pdflist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,11 +105,12 @@ public class AllCorpList extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(AllCorpList.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Siparişler Getiriliyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(AllCorpList.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
+
         }
 
         @Override
@@ -132,7 +121,7 @@ public class AllCorpList extends AppCompatActivity {
                     R.layout.cell_corp_infolist, new String[]{"Name", "VergiNo", "Adres"},
                     new int[]{R.id.Name, R.id.VAT, R.id.Adress});
             OrderList.setAdapter(adapter);
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 }

@@ -32,7 +32,7 @@ import java.util.HashMap;
 
 public class CorpList extends AppCompatActivity {
 
-    ProgressDialog mProgressDialog;
+    ProgressDialog progressDialog;
     ListAdapter adapter;
     String jsonStr = "";
 
@@ -105,11 +105,11 @@ public class CorpList extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(CorpList.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Firmalar Listeleniyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(CorpList.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -169,7 +169,7 @@ public class CorpList extends AppCompatActivity {
                     new String[]{"CorpId", "CorpName", "VergiDairesi","VergiNo","Adress"},
                     new int[]{R.id.CorpId, R.id.CorpName,R.id.VergiDairesi,R.id.VergiNo,R.id.Adress});
             lv.setAdapter(adapter);
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 }

@@ -36,13 +36,13 @@ import static com.eroglu.sevk.DomainName.getURL;
 
 public class ArticelFiles extends AppCompatActivity {
 
-     JSONArray ImageListe = null;
-     ArrayList<HashMap<String, String>> PictureArray;
-    ProgressDialog mProgressDialog;
+    JSONArray ImageListe = null;
+    ArrayList<HashMap<String, String>> PictureArray;
+    ProgressDialog progressDialog;
     private PlaceHolderView mGalleryView;
-     private String ArticelId;
+    private String ArticelId;
     private String TAG = MainActivity.class.getSimpleName();
-     private ListView pdflist;
+    private ListView pdflist;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class ArticelFiles extends AppCompatActivity {
         ArticelId = bundle.getString("ArticelId");
 
 
-         pdflist = findViewById(R.id.pdflist);
+        pdflist = findViewById(R.id.pdflist);
         PictureArray = new ArrayList<>();
 
         ActionBar actionBar = getSupportActionBar();
@@ -116,11 +116,11 @@ public class ArticelFiles extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(ArticelFiles.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("İşlem Devam Ediyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(ArticelFiles.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -133,8 +133,8 @@ public class ArticelFiles extends AppCompatActivity {
                 newImageList.add(imageList.get(i));
             }
             for (int i = imageList.size() - 1; i >= 0; i--) {
-                String  url=imageList.get(i).getImageUrl();
-                if (url.contains(".pdf")  || url.contains(".xls") ) {
+                String url = imageList.get(i).getImageUrl();
+                if (url.contains(".pdf") || url.contains(".xls")) {
                     ListAdapter adapter2 = new SimpleAdapter(ArticelFiles.this, PictureArray,
                             R.layout.cellorder_list, new String[]{"Quee", "Quee", "Path"},
                             new int[]{R.id.OrderId, R.id.Quee, R.id.Product});
@@ -144,7 +144,7 @@ public class ArticelFiles extends AppCompatActivity {
                 }
             }
 
-             mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
     }
 }

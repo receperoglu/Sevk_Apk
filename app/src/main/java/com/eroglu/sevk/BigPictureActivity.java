@@ -30,7 +30,7 @@ public class BigPictureActivity extends Activity {
     Float scale = 1f;
     ScaleGestureDetector SGD;
     ImageView image;
-     ProgressDialog mProgressDialog;
+     ProgressDialog progressDialog;
 
     private ScaleGestureDetector mScaleGestureDetector;
     private float mScaleFactor = 1.0f;
@@ -84,11 +84,11 @@ public class BigPictureActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(BigPictureActivity.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Resim Yükleniyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(BigPictureActivity.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -109,7 +109,7 @@ public class BigPictureActivity extends Activity {
             image.setImageBitmap(result);
 
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
         }
 
 
@@ -120,11 +120,11 @@ public class BigPictureActivity extends Activity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            mProgressDialog = new ProgressDialog(BigPictureActivity.this, R.style.Theme_Design_BottomSheetDialog);
-            mProgressDialog.setTitle("Resim Yükleniyor");
-            mProgressDialog.setMessage("Lütfen Bekleyin");
-            mProgressDialog.setIndeterminate(false);
-            mProgressDialog.show();
+            progressDialog = new ProgressDialog(BigPictureActivity.this);
+            progressDialog.setMessage("Lütfen Bekleyin");
+
+
+            progressDialog.show();
         }
 
         @Override
@@ -160,7 +160,7 @@ public class BigPictureActivity extends Activity {
         protected void onPostExecute(Bitmap result) {
 
 
-            mProgressDialog.dismiss();
+            progressDialog.dismiss();
             Toast toast = Toast.makeText(getApplicationContext(),
                     "Galeriye Kaydedildi",
                     Toast.LENGTH_SHORT);

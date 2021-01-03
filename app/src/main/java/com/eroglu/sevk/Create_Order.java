@@ -105,12 +105,11 @@ public class Create_Order extends AppCompatActivity {
                 new SaveOrder().execute();
 
 
-                progressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
-                progressDialog.setTitle("Kaydediliyor");
+                progressDialog = new ProgressDialog(Create_Order.this);
                 progressDialog.setMessage("Lütfen Bekleyin");
-                progressDialog.setIndeterminate(false);
-                progressDialog.show();
 
+
+                progressDialog.show();
                 new android.os.Handler().postDelayed(
                         new Runnable() {
                             public void run() {
@@ -130,11 +129,12 @@ public class Create_Order extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            progressDialog = new ProgressDialog(Create_Order.this, R.style.Theme_Design_BottomSheetDialog);
-            progressDialog.setTitle("Firmalar Listeleniyor");
+            progressDialog = new ProgressDialog(Create_Order.this);
             progressDialog.setMessage("Lütfen Bekleyin");
-            progressDialog.setIndeterminate(false);
+
+
             progressDialog.show();
+
         }
 
         @Override
